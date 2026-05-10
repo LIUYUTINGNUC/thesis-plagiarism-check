@@ -1,15 +1,15 @@
 <div align="center">
 
-# 语义级论文查重系统
+# 语义级论文自查系统
 
-**Semantic Thesis Plagiarism Detection System**
+**Semantic Thesis Self-Check System**
 
 [![CI](https://github.com/LIUYUTINGNUC/thesis-plagiarism-check/actions/workflows/ci.yml/badge.svg)](https://github.com/LIUYUTINGNUC/thesis-plagiarism-check/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
-**LLM Agent + BERT 语义编码 + 知识图谱 + AI 内容检测** — 智能论文查重引擎，**自由对接任意 LLM API**
+**LLM Agent + BERT 语义编码 + 知识图谱 + AI 内容检测** — 面向学生的论文自查工具，**自由对接任意 LLM API**
 
 </div>
 
@@ -34,7 +34,7 @@
 
 ### 中文
 
-**ThesisCheck** 是一个面向学术场景的语义级论文查重系统，不同于传统基于字符串匹配的查重工具，它从**语义理解**层面检测学术不端行为。
+**ThesisCheck** 是一个面向学生的论文自查工具，帮助你在提交论文前进行**语义级相似度检测**和 **AI 内容自查**。不同于传统基于字符串匹配的查重工具，它从**语义理解**层面帮你发现可能存在的问题——即使你用自己的话重新表述了参考内容，系统也能识别出语义上的相似性，让你在提交前有修改的机会。
 
 系统采用 **LLM Agent 双模式架构**：
 - **主模式：LLM Agent 模式** — 接入大语言模型进行深度语义分析、实体关系提取和 AI 内容检测
@@ -48,7 +48,7 @@
 
 ### English
 
-**ThesisCheck** is a semantic-level thesis plagiarism detection system designed for academic scenarios. Unlike traditional string-matching plagiarism checkers, it detects academic misconduct at the **semantic understanding** level.
+**ThesisCheck** is a self-check tool for students, helping you perform **semantic-level similarity detection** and **AI content verification** before submitting your thesis. Unlike traditional string-matching plagiarism checkers, it identifies semantic similarities at the **meaning level** — even if you've rephrased reference material in your own words, the system can detect semantic overlaps, giving you a chance to revise before submission.
 
 The system features a **Dual-Mode LLM Agent Architecture**:
 
@@ -67,10 +67,10 @@ Configure any one to enable LLM Agent mode.
 
 | 模块 | 中文 | English |
 |------|------|---------|
-| **语义分析** | BERT 深度语义编码 + FAISS 向量检索，检测改写/同义替换型抄袭 | BERT-based deep semantic encoding + FAISS vector search detects paraphrasing and synonym substitution |
-| **知识图谱** | 实体关系抽取 → 知识图谱构建 → 子图匹配，检测结构型抄袭 | Entity-relation extraction → knowledge graph construction → subgraph matching detects structural plagiarism |
-| **AI 内容检测** | 熵、突发度、重复度、词汇丰富度、连贯性异常等多维特征分析 | Multi-dimensional analysis: entropy, burstiness, repetition, vocabulary richness, coherence anomaly |
-| **LLM Agent** | 大模型驱动的深度语义对比、实体提取、AI 写作判别、报告生成 | LLM-driven deep semantic comparison, entity extraction, AI-writing detection, report generation |
+| **语义分析** | BERT 深度语义编码 + FAISS 向量检索，帮你发现改写/同义替换后的语义重复 | BERT-based deep semantic encoding + FAISS vector search finds paraphrased and synonym-substituted similarities |
+| **知识图谱** | 实体关系抽取 → 知识图谱构建 → 子图匹配，发现结构层面的相似性 | Entity-relation extraction → knowledge graph construction → subgraph matching reveals structural similarities |
+| **AI 内容自查** | 熵、突发度、重复度、词汇丰富度、连贯性异常等多维特征分析，帮你确认内容原创性 | Multi-dimensional analysis: entropy, burstiness, repetition, vocabulary richness, coherence anomaly — verify content originality |
+| **LLM Agent** | 大模型驱动的深度语义对比、实体提取、AI 内容检测、报告生成 | LLM-driven deep semantic comparison, entity extraction, AI content detection, report generation |
 | **双模式自动切换** | LLM 可用时用 Agent 模式，不可用时自动降级到统计模式 | Auto-switch between LLM Agent mode and statistical fallback |
 | **学科适配** | 内置医学、计算机科学、人文学科配置，支持自定义阈值和词典 | Built-in medicine, CS, humanities configs with custom thresholds and dictionaries |
 | **RESTful API** | FastAPI 异步 Web 服务，提供完整的检测和管理接口 | FastAPI async web service with complete detection and management endpoints |
@@ -323,7 +323,7 @@ pytest --cov=src/thesischeck --cov-report=term-missing
 ```json
 {
   "overall_score": 0.85,
-  "overall_verdict": "疑似抄袭",
+  "overall_verdict": "存在较高相似度",
   "semantic_similarity": 0.92,
   "kgraph_score": 0.78,
   "literal_similarity": 0.65,

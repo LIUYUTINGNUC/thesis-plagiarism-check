@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "thesischeck"
 version = "0.2.0"
-description = "语义级论文查重系统 — 基于 LLM Agent + BERT + 知识图谱的智能查重引擎"
+description = "语义级论文自查系统 — 基于 LLM Agent + BERT + 知识图谱的学生论文自查工具"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
