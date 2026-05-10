@@ -5,11 +5,11 @@
 
 from thesischeck.llm.base import LLMClient, LLMConfig, Message, Role
 from thesischeck.llm.claude import ClaudeClient
+from thesischeck.llm.factory import create_llm_client, list_available_providers
 from thesischeck.llm.openai_style import (
     OpenAIClient,
     OpenAICompatibleClient,
 )
-from thesischeck.llm.factory import create_llm_client, list_available_providers
 
 __all__ = [
     "LLMClient", "LLMConfig", "Message", "Role",

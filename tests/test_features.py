@@ -1,14 +1,12 @@
 """Tests for the statistical feature extraction module."""
 
 import numpy as np
-import pytest
 
 from thesischeck.core.ai_detection.features import (
     calculate_entropy,
     extract_all_features,
     feature_vector,
     function_word_ratio,
-    punctuation_density,
     readability_scores,
     sentence_length_stats,
     vocabulary_richness,

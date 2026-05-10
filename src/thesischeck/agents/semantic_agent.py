@@ -13,7 +13,7 @@ import json
 import re
 from typing import Optional
 
-from thesischeck.agents.base import BaseAgent, AnalysisResult
+from thesischeck.agents.base import AnalysisResult, BaseAgent
 from thesischeck.llm import LLMClient
 
 SYSTEM_PROMPT = """你是一个专业的论文查重分析专家。你的任务是深度理解两段文本的语义，

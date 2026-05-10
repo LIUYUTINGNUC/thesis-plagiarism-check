@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
-from thesischeck.agents.base import BaseAgent, AnalysisResult
+from thesischeck.agents.base import AnalysisResult, BaseAgent
 from thesischeck.llm import LLMClient
 
 SYSTEM_PROMPT = """你是一个专业的学术查重报告撰写专家。请基于多维度的检测数据

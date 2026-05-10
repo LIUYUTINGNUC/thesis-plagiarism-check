@@ -9,7 +9,6 @@
 from __future__ import annotations
 
 import json
-import os
 from typing import Any, Optional
 
 from thesischeck.llm.base import LLMClient, LLMConfig, Message, Role
@@ -137,7 +136,7 @@ class ClaudeClient(LLMClient):
 
             return text, probs
 
-        except Exception as e:
+        except Exception:
             # Token 概率 API 可能不可用，降级到普通 chat
             text = self.chat(messages)
             return text, []

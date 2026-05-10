@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from thesischeck.core.config.models import CheckResult
-from thesischeck.pipeline.orchestrator import PlagiarismChecker, SemanticResult
+from thesischeck.pipeline.orchestrator import PlagiarismChecker
 
 
 @pytest.fixture

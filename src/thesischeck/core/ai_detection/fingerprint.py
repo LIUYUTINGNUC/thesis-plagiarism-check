@@ -9,10 +9,8 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter
-from typing import Optional
 
 import numpy as np
-
 
 # ======================================================================
 # 突发性分析
@@ -71,6 +69,7 @@ def perplexity_score(text: str, model_name: str = "gpt2") -> float:
         return 0.0
 
     try:
+        import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
         tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -84,7 +83,7 @@ def perplexity_score(text: str, model_name: str = "gpt2") -> float:
             loss = outputs.loss
 
         return float(math.exp(loss))
-    except (ImportError, Exception) as e:
+    except (ImportError, Exception):
         # 离线或模型不可用时，使用近似方法
         return _approximate_perplexity(text)
 

@@ -1,6 +1,5 @@
 """Tests for the coherence analysis module."""
 
-import pytest
 
 from thesischeck.core.ai_detection.coherence import (
     coherence_score,

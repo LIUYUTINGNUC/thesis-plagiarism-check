@@ -186,7 +186,7 @@ def discourse_pattern(text: str) -> list[str]:
     Returns:
         按顺序排列的篇章段标签列表，如 ['claim', 'evidence', 'conclusion']。
     """
-    text_lower = text.lower()
+    text_lower = text.lower()  # noqa: F841
     paragraphs = re.split(r"\n\s*\n", text)
     pattern: list[str] = []
 

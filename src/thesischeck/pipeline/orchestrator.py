@@ -28,7 +28,6 @@ from thesischeck.core.config.models import CheckResult, DisciplineConfig
 from thesischeck.core.semantic.encoder import SentenceEncoder
 from thesischeck.core.semantic.kgraph import DomainKnowledgeGraph
 from thesischeck.core.semantic.similarity import (
-    cosine_similarity,
     SemanticSearcher,
 )
 from thesischeck.pipeline.preprocessor import TextPreprocessor
@@ -105,10 +104,10 @@ class PlagiarismChecker:
 
         if self._llm is not None and self._llm.check_available():
             try:
-                from thesischeck.agents.semantic_agent import SemanticAgent
-                from thesischeck.agents.kgraph_agent import KGraphAgent
                 from thesischeck.agents.ai_detection_agent import AIDetectionAgent
+                from thesischeck.agents.kgraph_agent import KGraphAgent
                 from thesischeck.agents.report_agent import ReportAgent
+                from thesischeck.agents.semantic_agent import SemanticAgent
 
                 self._agents = {
                     "semantic": SemanticAgent(self._llm),

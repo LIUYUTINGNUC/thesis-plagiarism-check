@@ -4,11 +4,11 @@
 当 LLM 不可用时，自动降级到统计方法。
 """
 
-from thesischeck.agents.base import BaseAgent, AnalysisResult
-from thesischeck.agents.semantic_agent import SemanticAgent
-from thesischeck.agents.kgraph_agent import KGraphAgent
 from thesischeck.agents.ai_detection_agent import AIDetectionAgent
+from thesischeck.agents.base import AnalysisResult, BaseAgent
+from thesischeck.agents.kgraph_agent import KGraphAgent
 from thesischeck.agents.report_agent import ReportAgent
+from thesischeck.agents.semantic_agent import SemanticAgent
 
 __all__ = [
     "BaseAgent", "AnalysisResult",

@@ -7,7 +7,6 @@ import pytest
 
 from thesischeck.core.semantic.encoder import SentenceEncoder
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -189,7 +188,7 @@ class TestCaching:
         # Build the expected cache keys using the same logic as the encoder
         import hashlib
         key_one = f"emb:all-MiniLM-L6-v2:{hashlib.md5('One sentence.'.encode('utf-8')).hexdigest()}"
-        key_two = f"emb:all-MiniLM-L6-v2:{hashlib.md5('Another sentence.'.encode('utf-8')).hexdigest()}"
+        key_two = f"emb:all-MiniLM-L6-v2:{hashlib.md5('Another sentence.'.encode('utf-8')).hexdigest()}"  # noqa: F841
         cached_vec = np.random.rand(384).astype(np.float32)
 
         def cache_get(key):

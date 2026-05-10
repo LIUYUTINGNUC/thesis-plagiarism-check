@@ -8,11 +8,11 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any, Optional
+from typing import Optional
 
 import numpy as np
 
-from thesischeck.agents.base import BaseAgent, AnalysisResult
+from thesischeck.agents.base import AnalysisResult, BaseAgent
 from thesischeck.llm import LLMClient
 
 SYSTEM_PROMPT = """你是一个 AI 生成内容检测专家。请判断一段文本是由人类撰写
@@ -76,7 +76,7 @@ class AIDetectionAgent(BaseAgent):
                 std_lp = float(np.std(logprobs))
                 prob_context = (
                     f"\n额外 Token 概率数据（均值: {mean_lp:.4f}, 标准差: {std_lp:.4f}）：\n"
-                    f"低概率分布通常表示人类写作的"意外"用词选择。"
+                    '低概率分布通常表示人类写作的"意外"用词选择。'
                 )
         prompt += prob_context
 

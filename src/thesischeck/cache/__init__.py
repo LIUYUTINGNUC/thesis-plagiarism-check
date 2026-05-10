@@ -22,7 +22,7 @@ class VectorCacheProtocol(Protocol):
 
 
 # Re-export the concrete implementation
-from thesischeck.cache.redis_cache import VectorCache, CacheKeyBuilder  # noqa: E402, F401
+from thesischeck.cache.redis_cache import CacheKeyBuilder, VectorCache  # noqa: E402, F401
 
 __all__ = ["VectorCache", "VectorCacheProtocol", "CacheKeyBuilder"]
 __version__ = "0.1.0"

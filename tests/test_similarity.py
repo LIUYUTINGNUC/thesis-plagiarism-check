@@ -10,7 +10,6 @@ from thesischeck.core.semantic.similarity import (
     semantic_distance,
 )
 
-
 # ======================================================================
 # cosine_similarity
 # ======================================================================

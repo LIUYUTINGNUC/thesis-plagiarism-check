@@ -1,78 +1,20 @@
-"""OpenAI 风格 API 客户端——支持 OpenAI 及所有兼容的国产模型。
+"""OpenAI 风格 API 客户端——兼容任意 OpenAI chat completions 格式的 API。
 
-兼容厂商列表（均支持 OpenAI chat completions 格式）：
-- OpenAI: GPT-4o, GPT-4o-mini
-- DeepSeek: deepseek-chat, deepseek-reasoner
-- 阿里通义千问 (Qwen): qwen-turbo, qwen-plus, qwen-max
-- 智谱 GLM: glm-4-plus, glm-4-air
-- 月之暗面 Moonshot (Kimi): moonshot-v1-8k, moonshot-v1-32k
-- 百川 Baichuan: Baichuan4, Baichuan3-Turbo
-- 零一万物 Yi: yi-large, yi-medium
-- 百度文心 ERNIE: ernie-4.0, ernie-3.5（通过兼容接口）
-- SiliconFlow / 讯飞星火 等
+用户通过环境变量自由配置 base_url、model 和 api_key，
+即可对接任意兼容 OpenAI 格式的 API 服务。
 """
 
 from __future__ import annotations
 
-import json
-import os
 from typing import Any, Optional
 
-from thesischeck.llm.base import LLMClient, LLMConfig, Message, Role
-
-
-# ======================================================================
-# 厂商默认配置映射
-# ======================================================================
-
-PROVIDER_CONFIGS: dict[str, dict[str, str]] = {
-    "openai": {
-        "base_url": "https://api.openai.com/v1",
-        "model": "gpt-4o",
-    },
-    "deepseek": {
-        "base_url": "https://api.deepseek.com",
-        "model": "deepseek-chat",
-    },
-    "qwen": {
-        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "model": "qwen-plus",
-    },
-    "glm": {
-        "base_url": "https://open.bigmodel.cn/api/paas/v4",
-        "model": "glm-4-plus",
-    },
-    "moonshot": {
-        "base_url": "https://api.moonshot.cn/v1",
-        "model": "moonshot-v1-8k",
-    },
-    "baichuan": {
-        "base_url": "https://api.baichuan-ai.com/v1",
-        "model": "Baichuan4",
-    },
-    "yi": {
-        "base_url": "https://api.lingyiwanwu.com/v1",
-        "model": "yi-large",
-    },
-    "ernie": {
-        "base_url": "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat",
-        "model": "ernie-4.0",
-    },
-    "siliconflow": {
-        "base_url": "https://api.siliconflow.cn/v1",
-        "model": "Qwen/Qwen2.5-72B-Instruct",
-    },
-    "spark": {
-        "base_url": "https://spark-api-open.xf-yun.com/v1",
-        "model": "generalv3.5",
-    },
-}
+from thesischeck.llm.base import LLMClient, LLMConfig, Message
 
 
 class OpenAICompatibleClient(LLMClient):
     """兼容 OpenAI chat completions 格式的通用客户端。
 
-    适用于大部分国产大模型，只需切换 base_url 和 model 即可。
+    用户只需配置 base_url、model 和 api_key，即可对接任意厂商。
     """
 
     def __init__(self, config: LLMConfig):
@@ -85,15 +27,11 @@ class OpenAICompatibleClient(LLMClient):
 
     @property
     def default_model(self) -> str:
-        provider_cfg = PROVIDER_CONFIGS.get(self.config.provider, {})
-        return provider_cfg.get("model", "gpt-4o")
+        return self.config.model or "gpt-4o"
 
     @property
     def _base_url(self) -> str:
-        if self.config.base_url:
-            return self.config.base_url
-        provider_cfg = PROVIDER_CONFIGS.get(self.config.provider, {})
-        return provider_cfg.get("base_url", "https://api.openai.com/v1")
+        return self.config.base_url or "https://api.openai.com/v1"
 
     @property
     def _model(self) -> str:
@@ -231,5 +169,4 @@ class OpenAIClient(OpenAICompatibleClient):
 __all__ = [
     "OpenAIClient",
     "OpenAICompatibleClient",
-    "PROVIDER_CONFIGS",
 ]

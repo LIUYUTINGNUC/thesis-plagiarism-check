@@ -10,9 +10,9 @@ import json
 import re
 from typing import Optional
 
-from thesischeck.agents.base import BaseAgent, AnalysisResult
-from thesischeck.llm import LLMClient
+from thesischeck.agents.base import AnalysisResult, BaseAgent
 from thesischeck.core.semantic.kgraph import load_domain_terms
+from thesischeck.llm import LLMClient
 
 SYSTEM_PROMPT = """你是一个知识图谱构建专家。请从学术文本中提取实体和关系，
 然后对比两个文本的知识结构相似度。

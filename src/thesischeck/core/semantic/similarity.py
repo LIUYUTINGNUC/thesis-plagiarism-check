@@ -6,7 +6,6 @@ from typing import Optional
 
 import numpy as np
 
-
 # ======================================================================
 # Similarity functions
 # ======================================================================
@@ -86,7 +85,7 @@ class SemanticSearcher:
     """
 
     def __init__(self) -> None:
-        self._index: Optional["faiss.Index"] = None
+        self._index: Optional["faiss.Index"] = None  # noqa: F821
         self._dim: int = 0
 
     # ------------------------------------------------------------------

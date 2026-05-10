@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import re
 from collections import Counter
-from typing import Optional
 
 import networkx as nx
 import numpy as np
@@ -373,7 +372,7 @@ class DomainKnowledgeGraph:
             return []
 
         sentences = self._split_sentences(text)
-        entity_set = set(e.lower() for e in entities)
+        entity_set = set(e.lower() for e in entities)  # noqa: F841
 
         # Map sentence index -> entities present in that sentence
         sentence_entities: list[list[str]] = []

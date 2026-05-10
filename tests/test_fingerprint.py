@@ -1,7 +1,6 @@
 """Tests for the GPT fingerprint detection module."""
 
 import numpy as np
-import pytest
 
 from thesischeck.core.ai_detection.fingerprint import (
     ai_detection_report,
