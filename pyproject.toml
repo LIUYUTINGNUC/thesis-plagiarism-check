@@ -1,0 +1,118 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesischeck"
+version = "0.2.0"
+description = "语义级论文查重系统 — 基于 LLM Agent + BERT + 知识图谱的智能查重引擎"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "LIUYUTINGNUC", email = "nuc2404044112@outlook.com" },
+]
+
+keywords = [
+    "plagiarism-detection",
+    "semantic-similarity",
+    "nlp",
+    "thesis-checking",
+    "ai-detection",
+    "llm-agent",
+    "knowledge-graph",
+    "chinese-nlp",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: English",
+]
+
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "pydantic>=2.0.0",
+    "sentence-transformers>=2.2.0",
+    "faiss-cpu>=1.7.0",
+    "networkx>=3.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "transformers>=4.35.0",
+    "torch>=2.0.0",
+]
+
+[project.optional-dependencies]
+# LLM API 支持（按需安装）
+llm = [
+    "anthropic>=0.40.0",
+    "openai>=1.0.0",
+]
+
+# 缓存支持
+cache = [
+    "redis>=5.0.0",
+]
+
+# 开发工具
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+
+# 完整安装
+all = [
+    "thesischeck[llm]",
+    "thesischeck[cache]",
+    "thesischeck[dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/thesis-plagiarism-check"
+Source = "https://github.com/yourusername/thesis-plagiarism-check"
+Documentation = "https://github.com/yourusername/thesis-plagiarism-check#readme"
+Issues = "https://github.com/yourusername/thesis-plagiarism-check/issues"
+
+[project.scripts]
+thesischeck-api = "thesischeck.api.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["thesischeck*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+markers = [
+    "llm: tests that require LLM API access",
+    "slow: slow integration tests",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true

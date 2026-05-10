@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+
+# Environment
+.env
+.env.local
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ML models (downloaded on demand)
+models/
+*.bin
+*.onnx
+
+# Logs
+*.log
+logs/
+
+# Redis dump
+dump.rdb
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml

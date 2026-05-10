@@ -1,0 +1,25 @@
+{
+    "name": "medicine",
+    "display_name": "医学",
+    "description": "医学论文查重配置：允许较高引用率，强调新发现和创新性",
+    "citation": {
+        "max_quotation_ratio": 0.4,
+        "min_novel_finding_ratio": 0.4,
+        "self_plagiarism_threshold": 0.25
+    },
+    "similarity": {
+        "semantic_threshold": 0.75,
+        "literal_threshold": 0.85,
+        "kgraph_weight": 0.5
+    },
+    "ai_detection": {
+        "feature_weights": {
+            "entropy": 0.15,
+            "coherence": 0.3,
+            "burstiness": 0.2,
+            "repetition": 0.2,
+            "vocabulary": 0.15
+        },
+        "ensemble_threshold": 0.65
+    }
+}

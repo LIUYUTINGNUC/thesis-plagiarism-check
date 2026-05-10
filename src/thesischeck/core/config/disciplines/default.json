@@ -1,0 +1,25 @@
+{
+    "name": "default",
+    "display_name": "通用默认配置",
+    "description": "适用于大多数学科的通用查重配置",
+    "citation": {
+        "max_quotation_ratio": 0.3,
+        "min_novel_finding_ratio": 0.3,
+        "self_plagiarism_threshold": 0.3
+    },
+    "similarity": {
+        "semantic_threshold": 0.75,
+        "literal_threshold": 0.85,
+        "kgraph_weight": 0.4
+    },
+    "ai_detection": {
+        "feature_weights": {
+            "entropy": 0.2,
+            "coherence": 0.25,
+            "burstiness": 0.25,
+            "repetition": 0.15,
+            "vocabulary": 0.15
+        },
+        "ensemble_threshold": 0.6
+    }
+}

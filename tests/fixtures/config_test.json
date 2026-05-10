@@ -1,0 +1,25 @@
+{
+    "name": "test_discipline",
+    "display_name": "测试学科",
+    "description": "用于测试的学科配置",
+    "citation": {
+        "max_quotation_ratio": 0.5,
+        "min_novel_finding_ratio": 0.2,
+        "self_plagiarism_threshold": 0.4
+    },
+    "similarity": {
+        "semantic_threshold": 0.8,
+        "literal_threshold": 0.9,
+        "kgraph_weight": 0.5
+    },
+    "ai_detection": {
+        "feature_weights": {
+            "entropy": 0.3,
+            "coherence": 0.2,
+            "burstiness": 0.2,
+            "repetition": 0.15,
+            "vocabulary": 0.15
+        },
+        "ensemble_threshold": 0.7
+    }
+}

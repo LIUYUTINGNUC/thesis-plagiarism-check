@@ -1,0 +1,25 @@
+{
+    "name": "cs",
+    "display_name": "计算机科学",
+    "description": "计算机科学论文查重配置：中等引用率，强调方法论贡献",
+    "citation": {
+        "max_quotation_ratio": 0.3,
+        "min_novel_finding_ratio": 0.35,
+        "self_plagiarism_threshold": 0.3
+    },
+    "similarity": {
+        "semantic_threshold": 0.7,
+        "literal_threshold": 0.8,
+        "kgraph_weight": 0.45
+    },
+    "ai_detection": {
+        "feature_weights": {
+            "entropy": 0.2,
+            "coherence": 0.2,
+            "burstiness": 0.3,
+            "repetition": 0.15,
+            "vocabulary": 0.15
+        },
+        "ensemble_threshold": 0.6
+    }
+}

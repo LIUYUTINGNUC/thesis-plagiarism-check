@@ -1,0 +1,30 @@
+# 核心依赖
+numpy>=1.24.0
+scipy>=1.11.0
+pydantic>=2.0.0
+pydantic-core>=2.14.0
+
+# 语义分析
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.0
+transformers>=4.35.0
+torch>=2.0.0
+
+# 知识图谱
+networkx>=3.0
+
+# API服务
+fastapi>=0.104.0
+uvicorn>=0.24.0
+httpx>=0.25.0
+
+# 缓存
+redis>=5.0.0
+
+# LLM API（按需安装）
+# anthropic>=0.40.0      # Claude API
+# openai>=1.0.0          # OpenAI + 国产兼容模型
+
+# 开发测试
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

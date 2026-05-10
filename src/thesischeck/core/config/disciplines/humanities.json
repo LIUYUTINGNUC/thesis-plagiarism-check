@@ -1,0 +1,25 @@
+{
+    "name": "humanities",
+    "display_name": "人文社科",
+    "description": "人文社科论文查重配置：低引用容忍度，强调论点原创性",
+    "citation": {
+        "max_quotation_ratio": 0.2,
+        "min_novel_finding_ratio": 0.5,
+        "self_plagiarism_threshold": 0.25
+    },
+    "similarity": {
+        "semantic_threshold": 0.65,
+        "literal_threshold": 0.8,
+        "kgraph_weight": 0.55
+    },
+    "ai_detection": {
+        "feature_weights": {
+            "entropy": 0.25,
+            "coherence": 0.25,
+            "burstiness": 0.2,
+            "repetition": 0.15,
+            "vocabulary": 0.15
+        },
+        "ensemble_threshold": 0.55
+    }
+}
